@@ -9,9 +9,11 @@ def index(request) :
     return render(request, 'index.html')
 
 #####################################
+
 # 멋사 read 페이지 
 def likelion(request) : 
     sort = request.GET.get('sort')
+    goods = Likelion.objects.order_by('-like_users')[:3]
     if sort == 'like_users':
         likelion = Likelion.objects.order_by('-like_users')
     else:
@@ -19,9 +21,19 @@ def likelion(request) :
     context ={
         'likelion' : likelion,
         'request' : request,
-        'sort' : sort
+        'sort' : sort, 
+        'goods1': goods,
     }
-    return render(request, 'likelion.html', context)
+    return render(request, 'main.html', context)
+
+# 멋사 3위 
+# def likelion_ranking(request) : 
+#     goods = Likelion.objects.order_by('-like_users')[:3]
+#     context = {
+#         'goods1' : goods1
+#     }
+#     return render(request, 'main.html', context)
+
 
 # 멋사 좋아요. 
 def likelion_like(request, pk) : 
@@ -36,6 +48,21 @@ def likelion_like(request, pk) :
             return redirect('likelion')
     else :
         return redirect('/login')
+
+# def likelion_like(request, pk) : 
+#     user = request.user
+#     likelion = Likelion.objects.get(pk=pk)
+#     if user.is_authenticated :
+#         if request.user in likelion.like_users.all() : 
+#             likelion.like_users.remove(request.user) # 좋아요 한 사람이 취소
+#             likelion.like_counts -= 1
+#             return redirect('likelion')
+#         else :
+#             likelion.like_users.add(request.user)
+#             likelion.like_counts += 1
+#             return redirect('likelion')
+#     else :
+#         return redirect('/login')
 
 
 # 멋사 Create

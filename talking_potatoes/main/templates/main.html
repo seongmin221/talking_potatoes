@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <!--        .card {
             width: 300px; 
             padding: 10px; padding 아님
         }-->
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,8 +16,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-
-    <link rel="stylesheet" href="{% static 'css/mainpage.css' %}">
 
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
@@ -56,6 +56,7 @@
         .card {
             width: 300px; 
             padding: 10px; 
+
         }
 
         .card-body{
@@ -89,6 +90,7 @@
 <body>
     <div class=" main-container">
         <div class="title-container" style> <!--style추가 해야함-->
+
             <div class="title-space" style="text-align: center; font-size: 50px;">멋사 2행시 종결자</div>
         </div>
         <div class="content-container">
@@ -163,169 +165,50 @@
             </div>
             <div class="all-content-container justify-content-end">
                 <div style='width:1015px; margin:0 auto; margin-top:50px;'>
-                    <ul class="nav nav-tabs" style="border-bottom:none; margin-bottom:20px;">
-                        <li class='active'><a style="border:none;" href="#sort-by-popularity" data-toggle="tab">인기순</a></li>
-                        <li><a style="border:none;" href="#sort-by-time" data-toggle="tab">최신순</a></li>
-                    </ul>
+
+                    <form method="GET" action="">
+                        <div>
+                            <select name="sort" id="sort">
+                                <option value="recently" id="recently">최신순</option>
+                                <option value="like_users" id="like_users">좋아요순</option>
+                            </select>
+                            <button type="submit" value="">정렬</button>
+                        </div>
+                    </form>
+
                     <div class="tab-content">
                         <div class="tab-pane fade in active" id="sort-by-popularity">
                             <div class="row">
+                            {% for i in likelion %}
                                 <div class="text-element col-sm-4">
                                     <div class="card" style="width:100%; margin-bottom:20px">
                                         <div class="card-body">
                                             <div class="content" style="margin-top:10px;">
                                                 <p style="font-size: 25px; ">
-                                                    <inline style="font-size: 35px; margin-right:3px;">멋</inline>쟁이
+                                                    <inline style="font-size: 35px; margin-right:3px;">멋</inline>{{i.likelion_first}}
                                                 </p>
                                                 <p style="font-size: 25px; ">
-                                                    <inline style="font-size: 35px; margin-right:3px;">사</inline>자처럼
+                                                    <inline style="font-size: 35px; margin-right:3px;">사</inline>{{i.likelion_second}}
                                                 </p>
                                             </div>
-                                            
+
                                             <div class="card-info">
-                                                <p class="card-writer" style="font-size:18px;  color:grey">seongmin</p>
-                                                <p class="card-like">❤</p>
+                                                <p class="card-writer" style="font-size:18px;  color:grey">{{i.writer}}</p>
+                                                <p class="card-date" style="font-size:18px;  color:grey">{{ i.created }}</p>
+                                                <p class="card-like">❤{{ i.like_users.count }}명이 좋아합니다.</p>
                                             </div>
+                                            {% if request.user in i.like_users.all %}
+                                            <a href="{% url 'likelion_like' i.pk %}">
+                                            하트 취소하기
+                                            </a>
+                                            {% else %}
+                                            <a href="{% url 'likelion_like' i.pk %}">
+                                            하트 누르기</a>
+                                            {% endif %}
                                         </div>
                                     </div>
                                 </div>
-                                <div class="text-element col-sm-4">
-                                    <div class="card" style="width:100%; margin-bottom:20px">
-                                        <div class="card-body">
-                                            <div class="content" style="margin-top:10px;">
-                                                <p style="font-size: 25px; ">
-                                                    <inline style="font-size: 35px; margin-right:3px;">멋</inline>쟁이
-                                                </p>
-                                                <p style="font-size: 25px; ">
-                                                    <inline style="font-size: 35px; margin-right:3px;">사</inline>자처럼
-                                                </p>
-                                            </div>
-                                            
-                                            <div class="card-info">
-                                                <p class="card-writer" style="font-size:18px;  color:grey">seongmin</p>
-                                                <p class="card-like">❤</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="text-element col-sm-4">
-                                    <div class="card" style="width:100%; margin-bottom:20px">
-                                        <div class="card-body">
-                                            <div class="content" style="margin-top:10px;">
-                                                <p style="font-size: 25px; ">
-                                                    <inline style="font-size: 35px; margin-right:3px;">멋</inline>쟁이
-                                                </p>
-                                                <p style="font-size: 25px; ">
-                                                    <inline style="font-size: 35px; margin-right:3px;">사</inline>자처럼
-                                                </p>
-                                            </div>
-                                            
-                                            <div class="card-info">
-                                                <p class="card-writer" style="font-size:18px;  color:grey">seongmin</p>
-                                                <p class="card-like">❤</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="text-element col-sm-4">
-                                    <div class="card" style="width:100%; margin-bottom:20px">
-                                        <div class="card-body">
-                                            <div class="content" style="margin-top:10px;">
-                                                <p style="font-size: 25px; ">
-                                                    <inline style="font-size: 35px; margin-right:3px;">멋</inline>쟁이
-                                                </p>
-                                                <p style="font-size: 25px; ">
-                                                    <inline style="font-size: 35px; margin-right:3px;">사</inline>자처럼
-                                                </p>
-                                            </div>
-                                            
-                                            <div class="card-info">
-                                                <p class="card-writer" style="font-size:18px;  color:grey">seongmin</p>
-                                                <p class="card-like">❤</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="sort-by-time">
-                            <div class="row">
-                                <div class="text-element col-sm-4">
-                                    <div class="card" style="width:100%; margin-bottom:20px">
-                                        <div class="card-body">
-                                            <div class="content" style="margin-top:10px;">
-                                                <p style="font-size: 25px; ">
-                                                    <inline style="font-size: 35px; margin-right:3px;">멋</inline>쟁이
-                                                </p>
-                                                <p style="font-size: 25px; ">
-                                                    <inline style="font-size: 35px; margin-right:3px;">사</inline>자처럼
-                                                </p>
-                                            </div>
-                                            
-                                            <div class="card-info">
-                                                <p class="card-writer" style="font-size:18px;  color:grey">seongmin</p>
-                                                <p class="card-like">❤</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="text-element col-sm-4">
-                                    <div class="card" style="width:100%; margin-bottom:20px">
-                                        <div class="card-body">
-                                            <div class="content" style="margin-top:10px;">
-                                                <p style="font-size: 25px; ">
-                                                    <inline style="font-size: 35px; margin-right:3px;">멋</inline>쟁이
-                                                </p>
-                                                <p style="font-size: 25px; ">
-                                                    <inline style="font-size: 35px; margin-right:3px;">사</inline>자처럼
-                                                </p>
-                                            </div>
-                                            
-                                            <div class="card-info">
-                                                <p class="card-writer" style="font-size:18px;  color:grey">seongmin</p>
-                                                <p class="card-like">❤</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="text-element col-sm-4">
-                                    <div class="card" style="width:100%; margin-bottom:20px">
-                                        <div class="card-body">
-                                            <div class="content" style="margin-top:10px;">
-                                                <p style="font-size: 25px; ">
-                                                    <inline style="font-size: 35px; margin-right:3px;">멋</inline>쟁이
-                                                </p>
-                                                <p style="font-size: 25px; ">
-                                                    <inline style="font-size: 35px; margin-right:3px;">사</inline>자처럼
-                                                </p>
-                                            </div>
-                                            
-                                            <div class="card-info">
-                                                <p class="card-writer" style="font-size:18px;  color:grey">seongmin</p>
-                                                <p class="card-like">❤</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="text-element col-sm-4">
-                                    <div class="card" style="width:100%; margin-bottom:20px">
-                                        <div class="card-body">
-                                            <div class="content" style="margin-top:10px;">
-                                                <p style="font-size: 25px; ">
-                                                    <inline style="font-size: 35px; margin-right:3px;">멋</inline>쟁이
-                                                </p>
-                                                <p style="font-size: 25px; ">
-                                                    <inline style="font-size: 35px; margin-right:3px;">사</inline>자처럼
-                                                </p>
-                                            </div>
-                                            
-                                            <div class="card-info">
-                                                <p class="card-writer" style="font-size:18px;  color:grey">seongmin</p>
-                                                <p class="card-like">❤</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            {% endfor %}
                             </div>
                         </div>
                     </div>
@@ -339,5 +222,4 @@
 
     </div>
 </body>
-
 </html>

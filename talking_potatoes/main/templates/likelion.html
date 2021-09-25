@@ -1,3 +1,15 @@
+
+
+
+
+랭킹 매기기
+
+{% for g in goods1 %}
+{{g.likelion_first}}
+{{g.likelion_second}}
+{% endfor %}
+
+-----------------------------
 <form method="GET" action="">
 <div>
     <select name="sort" id="sort">
@@ -44,3 +56,6 @@
     <a href="{% url 'signup' %}">회원가입</a>
     <a href="{% url 'login' %}">로그인</a>
 {% endif %}
+
+
+
