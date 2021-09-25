@@ -3,13 +3,13 @@
 
 <form method="POST" action="{% url 'signup' %}">
     {% csrf_token %}
-    <p>username</p>
+    <p>중복이름 안됨 닉네임으로 적어야함 '이름_팀명'username</p>
     <input type="text" name="username">
     <br>
-    <p>password</p>
+    <p>비밀번호 : password</p>
     <input type="text" name="password">
     <br>
-    <p>confirm</p>
+    <p>비밀번호 재확인 confirm</p>
     <input type="text" name="confirm">
     <br>
     <input type="submit" value="회원가입">

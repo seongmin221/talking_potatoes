@@ -4,4 +4,8 @@ from .models import *
 class LikelionAdmin(admin.ModelAdmin):
     list_display =['writer']
 
+class GrowlAdmin(admin.ModelAdmin):
+    list_display=['writer']
+
 admin.site.register(Likelion, LikelionAdmin)
+admin.site.register(Growl, GrowlAdmin)

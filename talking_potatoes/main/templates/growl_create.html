@@ -1,0 +1,29 @@
+<h1>
+    어흥 CREATE
+    growl create 
+    growl_create.html
+</h1> 
+
+<form action ="{% url 'growl_create' %}" method = 'POST'>
+    {% csrf_token %}
+
+    <p> 어 : </p>
+    <input type ='text' name = 'growl_first'>
+    <p> 흥 : </p>
+    <input type ='text' name = 'growl_second'>
+
+    <button type = 'submit'>등록하기</button> 
+
+
+</form>
+
+{% if user.is_authenticated %}
+    <p>{{ user.username }}</p>
+    <a href="javascript:{document.getElementById('logout').submit()}">로그아웃</a>
+    <form id="logout" method="POST" action="{% url 'logout' %}">
+        {% csrf_token %} <input type="hidden" />
+    </form>
+{% else %}
+    <a href="{% url 'signup' %}">회원가입</a>
+    <a href="{% url 'login' %}">로그인</a>
+{% endif %}
