@@ -16,14 +16,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 import main.views
-import account.views
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
+    path('', include('account.urls')),
     path('admin/', admin.site.urls),
     path('', main.views.index, name = 'index'),
-    path('likelion/', main.views.likelion, name = 'likelion'), # 메인 화면
-    path('likelion/like/<int:pk>', main.views.likelion_like, name = 'likelion_like'),
+    path('likelion/', main.views.likelion, name = 'likelion'), # 멋사
+    path('likelion/<int:pk>', main.views.likelion_like, name = 'likelion_like'),
     path('likelion/create/', main.views.likelion_create, name = 'likelion_create'),
-    path('', include('account.urls'))
+    path('growl/', main.views.growl, name = 'growl'), # 어흥
+    path('growl/<int:pk>', main.views.growl_like, name = 'growl_like'), # 어흥 좋아요
+    path('growl/create/', main.views.growl_create, name = 'growl_create'), 
+
 ]

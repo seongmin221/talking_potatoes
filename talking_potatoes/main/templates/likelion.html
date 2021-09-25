@@ -1,12 +1,34 @@
+<form method="GET" action="">
+<div>
+    <select name="sort" id="sort">
+        <option value="recently" id="recently">최신순</option>
+        <option value="like_users" id="like_users">좋아요순</option>
+    </select>
+    <button type="submit" value="">정렬</button>
+</div>
+</form>
+
+성민 ; main.html
+
 {% for i in likelion %}
 <p> 멋 : {{i.likelion_first}} </p>
 <p> 사 : {{i.likelion_second}}</p>
 <p> 작성자 :  {{i.writer}} </p>
 <p>좋아요 수 : </p>
 <p>{{ i.like_users.count }}명이 좋아합니다.</p>
+<p>{{ i.created }}</p>
+
 --------------------------------
 하트 색칠하기 
 
+{% if request.user in i.like_users.all %}
+<a href="{% url 'likelion_like' i.pk %}">
+하트 취소하기
+</a>
+{% else %}
+<a href="{% url 'likelion_like' i.pk %}">
+하트 누르기</a>
+{% endif %}
 
 {% endfor %}
 <br>
