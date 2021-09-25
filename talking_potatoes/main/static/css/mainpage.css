@@ -1,0 +1,30 @@
+body{
+    margin:0; 
+    padding:0;
+}
+
+.title-container{
+    background-color: burlywood;
+    padding: 40px;
+}
+
+.ranking-container{
+    width:70%; 
+    margin:auto;
+}
+
+.ranking-space{
+    align-content: center;
+}
+
+.top3-ranks{
+    display: flex; flex-direction: row;
+}
+
+.card{
+    width:300px;
+}
+
+.card-info{
+    margin-top: 20px;
+}

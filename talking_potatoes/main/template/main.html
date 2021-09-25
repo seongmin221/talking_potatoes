@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{% static 'css/mainpage.css' %}">
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+
+    <style>
+        body{
+    margin:0; 
+    padding:0;
+}
+
+.title-container{
+    background-color: burlywood;
+    padding: 40px;
+}
+
+.ranking-container{
+    width:70%; 
+    margin:auto;
+}
+
+.ranking-space{
+    align-content: center;
+}
+
+.top3-ranks{
+    display: flex; flex-direction: row;
+}
+
+.card{
+    width:300px;
+}
+
+.card-info{
+    margin-top: 20px;
+}
+    </style>
+
+</head>
+
+<body>
+    <div class=" main-container">
+        <div class="title-container" style=" ">
+            <div class="title-space" style="text-align: center; font-size: 50px;">멋사 2행시 종결자</div>
+        </div>
+        <div class="ranking-container" >
+            <div class="ranking-space">
+                <div class="top3-ranks">
+                    <div class="high-rank top2">
+                        <div class="card">
+                            <div class="card-body">
+                                <p style="font-size: 25px; margin-bottom:0;">
+                                    <inline style="font-size: 35px; margin-right:3px;">멋</inline>쟁이
+                                </p>
+                                <p style="font-size: 25px; margin-bottom:0;">
+                                    <inline style="font-size: 35px; margin-right:3px;">사</inline>자처럼
+                                </p>
+                                <div class="card-info">
+                                    <p class="card-writer" style="font-size:15px; margin-bottom:0; color:grey">seongmin</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="top1">
+                        <div class="card " style="width:300px;">
+                            <div class="card-body">
+                                <p style="font-size: 25px; margin-bottom:0;">
+                                    <inline style="font-size: 35px; margin-right:3px;">멋</inline>쟁이
+                                </p>
+                                <p style="font-size: 25px; margin-bottom:0;">
+                                    <inline style="font-size: 35px; margin-right:3px;">사</inline>자처럼
+                                </p>
+                                <div class="card-info" style="margin-top: 20px;">
+                                    <p class="card-writer" style="font-size:15px; margin-bottom:0; color:grey">seongmin</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="top3">
+                        <div class="card " style="width:300px;">
+                            <div class="card-body">
+                                <p style="font-size: 25px; margin-bottom:0;">
+                                    <inline style="font-size: 35px; margin-right:3px;">멋</inline>쟁이
+                                </p>
+                                <p style="font-size: 25px; margin-bottom:0;">
+                                    <inline style="font-size: 35px; margin-right:3px;">사</inline>자처럼
+                                </p>
+                                <div class="card-info" style="margin-top: 20px;">
+                                    <p class="card-writer" style="font-size:15px; margin-bottom:0; color:grey">seongmin</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
