@@ -12,6 +12,9 @@ def index(request) :
 # 멋사 read 페이지 
 def likelion(request) : 
     sort = request.GET.get('sort')
+    ######
+    goods = Likelion.objects.order_by('-like_users')[:3]
+    ######
     if sort == 'like_users':
         likelion = Likelion.objects.order_by('-like_users')
     else:
@@ -20,7 +23,9 @@ def likelion(request) :
     context ={
         'likelion' : likelion,
         'request' : request,
-        'sort' : sort
+        'sort' : sort,
+        'goods1': goods,
+
     }
     return render(request, 'main.html', context)
 
