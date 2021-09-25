@@ -31,28 +31,32 @@
             </div>
             <div class="login-space col-6">
                 <p style="font-size: 30px; text-align: center; font-weight: 600;">회원가입</p>
-                <div class="username-input" >
-                    아이디:
-                    <input class="username" placeholder="아이디">
-                </div>
-                <div class="password-input">
-                    비밀번호:
-                    <input class="password" placeholder="비밀번호">
-                </div>
-                <div class="password-confirm-input">
-                    비밀번호 확인:
-                    <input class="password-confirm" placeholder="비밀번호 확인">
-                </div>
+                <form method="POST" action="{% url 'signup' %}">
+                    {% csrf_token %}
+                    <div class="username-input" >
+                        아이디:
+                        <input class="username" type="text" name="username" placeholder="아이디">
+                    </div>
+                    <div class="password-input">
+                        비밀번호:
+                        <input class="password" name="password" placeholder="비밀번호">
+                    </div>
+                    <div class="password-confirm-input">
+                        비밀번호 확인:
+                        <input class="password-confirm" name="confirm" placeholder="비밀번호 확인">
+                    </div>
+                    <div class="confirm"  style="text-align: center; margin-top:20px">
+                        <button class="confirm-btn">
+                            시작하기
+                        </button>
+                    </div>
+                </form>
             </div>
             <div class="olympic-image-container col-2" style="margin-top:129px;">
                 <img src="../../static/image/어흥올림.svg" style="width:100%; height:auto;">
             </div>
         </div>
-        <div class="confirm"  style="text-align: center; margin-top:20px">
-            <button class="confirm-btn">
-                시작하기
-            </button>
-        </div>
+        
     </div>
 </body>
 

@@ -27,6 +27,7 @@ urlpatterns = [
     path('likelion/', main.views.likelion, name = 'likelion'), # 멋사
     path('likelion/<int:pk>', main.views.likelion_like, name = 'likelion_like'),
     path('likelion/create/', main.views.likelion_create, name = 'likelion_create'),
+    
     path('growl/', main.views.growl, name = 'growl'), # 어흥
     path('growl/<int:pk>', main.views.growl_like, name = 'growl_like'), # 어흥 좋아요
     path('growl/create/', main.views.growl_create, name = 'growl_create'), 

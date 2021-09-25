@@ -1,0 +1,23 @@
+.first-letter-input, .second-letter-input{
+    width:360px; 
+    height:60px; 
+    border:2px solid grey; 
+    border-radius:35px; 
+    margin:0 auto;
+    text-align:left;
+    padding-top:16px;
+    padding-left:20px;
+    margin-bottom:30px;
+}
+
+.first-letter, .second-letter{
+    border:none;
+}
+
+.submit-btn{
+    width:120px;
+    height:40px;
+    border: solid 2px black;
+    border-radius: 20px;
+    background-color: white;
+}
