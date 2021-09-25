@@ -80,7 +80,8 @@
             position: fixed;
             top: 80%;
             right: 10%;
-            background: pink;
+            border:none;
+            background-color: white;
         }
 
     </style>
@@ -213,7 +214,9 @@
                         </div>
                     </div>
                 </div>
-                <button class="add-new-content"></button>
+                <a href="{% url 'likelion_create' %}"class="add-new-content">
+                    <img src="../static/image/글쓰기 버튼.svg">
+                </a>
 
             </div>
 

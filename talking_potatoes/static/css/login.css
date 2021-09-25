@@ -29,3 +29,11 @@ body{
 .username-input, .password-input{
     margin-bottom:30px;
 }
+
+submit-btn{
+    width:120px;
+    height:40px;
+    border: solid 2px black;
+    border-radius: 20px;
+    background-color: white;
+}   
