@@ -11,6 +11,7 @@ class Likelion(models.Model) :
     created = models.DateTimeField(auto_now_add=True, verbose_name = "최근 순 created")
     writer = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name = "작성자 writer")
     like_users = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name ='like_counts', verbose_name="좋아요 수 like_users")
+    like_counts = models.PositiveIntegerField(default=0)
 
 
 # 어흥
@@ -20,3 +21,4 @@ class Growl(models.Model):
     created = models.DateTimeField(auto_now_add=True, verbose_name = "최근 순 created")
     writer = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name = "작성자 writer")
     like_users = models.ManyToManyField(settings.AUTH_USER_MODEL,related_name ='growl_like_counts', verbose_name="좋아요 수 like_users")
+    like_counts = models.PositiveIntegerField(default=0)

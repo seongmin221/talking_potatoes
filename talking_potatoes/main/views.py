@@ -12,16 +12,17 @@ def index(request) :
 # 멋사 read 페이지 
 def likelion(request) : 
     sort = request.GET.get('sort')
-    if sort == 'like_users':
-        likelion = Likelion.objects.order_by('-like_users')
+    if sort == 'like_counts':
+        likelion = Likelion.objects.order_by('-like_counts')
     else:
-        likelion = Likelion.objects.order_by('-created')
+        likelion = Likelion.objects.all().order_by('-created')
+    print(len(likelion))
     context ={
         'likelion' : likelion,
         'request' : request,
         'sort' : sort
     }
-    return render(request, 'likelion.html', context)
+    return render(request, 'main.html', context)
 
 # 멋사 좋아요. 
 def likelion_like(request, pk) : 
@@ -30,9 +31,11 @@ def likelion_like(request, pk) :
     if user.is_authenticated :
         if request.user in likelion.like_users.all() : 
             likelion.like_users.remove(request.user) # 좋아요 취소
+            likelion.like_counts -= 1
             return redirect('likelion')
         else :
             likelion.like_users.add(request.user)
+            likelion.like_counts += 1
             return redirect('likelion')
     else :
         return redirect('/login')
