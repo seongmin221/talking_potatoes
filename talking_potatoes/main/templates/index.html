@@ -44,9 +44,9 @@
                 <div class="landing-first" style="text-align: center; font-size: 25px; height:500px;">
                     <p style="font-size: 40px;">2. 연애를 잘한다.</p>
                     이성에게 받는 고백 중 최고의 고백은 바로 무엇일가요? <br>
-                    바로 '깜짝! n행시 고백'입니다. 
-왜 옆에 아무도 없는지 생각해보는 시간을 가져봅시다. <br>
-그건 바로 n행시를 잘하지 못하기 때문이 아닐까요? <br>
+                    바로 '깜짝! n행시 고백'입니다.
+                    왜 옆에 아무도 없는지 생각해보는 시간을 가져봅시다. <br>
+                    그건 바로 n행시를 잘하지 못하기 때문이 아닐까요? <br>
                 </div>
 
 
@@ -57,7 +57,15 @@
                     임기응변과 같은 위기 대처 능력을 키우며 장수하는 삶. 기대되지 않으세요?<br>
                 </div>
 
+                <div class="start" style="text-align: center; margin: 0 auto; width:150px; height:30px; border:solid 2px black; border-radius: 15px; margin-bottom:20px">
+                    <a href="{% url 'login' %}" style="text-decoration: none; color:black"> 시작하기 </a>
+                </div>
 
+                <div class="start" style="text-align: center; margin: 0 auto; width:150px; height:30px; border:solid 2px black; border-radius: 15px;">
+                    <a href="{% url 'likelion' %}" style="text-decoration: none; color:black"> 구경하기 </a>
+                </div>
+                
+                
 
 
                 <!-- <form method="POST" action="{% url 'login' %}">
@@ -91,8 +99,6 @@
 </html>
 
 
-
-랜딩페이지
 
 
 {% if user.is_authenticated %}
