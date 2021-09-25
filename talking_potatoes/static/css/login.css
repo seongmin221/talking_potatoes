@@ -7,15 +7,15 @@ body{
     font-family: 'arirang';
 }
 
-.username, .password{
+.username, .password, .password-confirm{
     border:none;
 }
 
-.username:focus, .password:focus{
+.username:focus, .password:focus, .password-confirm{
     outline:none;
 }
 
-.username-input, .password-input{
+.username-input, .password-input, .password-confirm-input{
     width:360px; 
     height:60px; 
     border:2px solid grey; 
@@ -26,6 +26,6 @@ body{
     padding-left:20px;
 }
 
-.username-input{
+.username-input, .password-input{
     margin-bottom:30px;
 }
