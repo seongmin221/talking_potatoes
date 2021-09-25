@@ -1,16 +1,59 @@
-회원가입 signup
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../static/css/login.css">
+    <link rel="stylesheet" href="../../static/css/signup.css">
 
 
-<form method="POST" action="{% url 'signup' %}">
-    {% csrf_token %}
-    <p>중복이름 안됨 닉네임으로 적어야함 '이름_팀명'username</p>
-    <input type="text" name="username">
-    <br>
-    <p>비밀번호 : password</p>
-    <input type="text" name="password">
-    <br>
-    <p>비밀번호 재확인 confirm</p>
-    <input type="text" name="confirm">
-    <br>
-    <input type="submit" value="회원가입">
-</form>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="main-container align-self-center" style="display: flex; flex-direction:column;">
+        <div class="page-title">
+            <p class=" title-container" style="font-size:40px; text-align: center; margin-top:100px">멋사 2행시 종결자</p>
+        </div>
+        <div class="image-input-container" style="display:flex; flex-direction: row; margin-top:150px;">
+            <div class="lion-image-container col-2" style=" margin-left:8%; margin-top:50px;">
+                <img src="../../static/image/aheung.svg" style="width:100%; height:auto;">
+            </div>
+            <div class="login-space col-6">
+                <p style="font-size: 30px; text-align: center; font-weight: 600;">회원가입</p>
+                <div class="username-input" >
+                    아이디:
+                    <input class="username" placeholder="아이디">
+                </div>
+                <div class="password-input">
+                    비밀번호:
+                    <input class="password" placeholder="비밀번호">
+                </div>
+                <div class="password-confirm-input">
+                    비밀번호 확인:
+                    <input class="password-confirm" placeholder="비밀번호 확인">
+                </div>
+            </div>
+            <div class="olympic-image-container col-2" style="margin-top:129px;">
+                <img src="../../static/image/어흥올림.svg" style="width:100%; height:auto;">
+            </div>
+        </div>
+        <div class="confirm"  style="text-align: center; margin-top:20px">
+            <button class="confirm-btn">
+                시작하기
+            </button>
+        </div>
+    </div>
+</body>
+
+</html>
