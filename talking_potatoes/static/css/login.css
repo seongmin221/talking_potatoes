@@ -1,0 +1,31 @@
+@font-face{
+    src:url("../font/JSArirangHON.ttf");
+    font-family:"arirang";
+}
+
+body{
+    font-family: 'arirang';
+}
+
+.username, .password{
+    border:none;
+}
+
+.username:focus, .password:focus{
+    outline:none;
+}
+
+.username-input, .password-input{
+    width:360px; 
+    height:60px; 
+    border:2px solid grey; 
+    border-radius:35px; 
+    margin:0 auto;
+    text-align:left;
+    padding-top:16px;
+    padding-left:20px;
+}
+
+.username-input{
+    margin-bottom:30px;
+}
