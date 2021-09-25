@@ -21,10 +21,19 @@ body{
     display: flex; flex-direction: row;
 }
 
-.card{
-    width:300px;
+.card-body{
+    padding:0;
+    
 }
 
 .card-info{
     margin-top: 20px;
+}
+
+.nav-tabs{
+    border-bottom:none;
+}
+
+.text-element{
+    background-color:aqua;
 }
